@@ -13,7 +13,10 @@
       >
         Вызвать курьера
       </div>
-      <div :class="tab === 'track' ? 'active-tab ' : 'tab'" @click="tab = 'track'">
+      <div
+        :class="tab === 'track' ? 'active-tab ' : 'tab'"
+        @click="tab = 'track'"
+      >
         Отследить посылку
       </div>
     </div>
@@ -34,7 +37,7 @@ export default {
   components: {
     PackageCost,
     PackageCourier,
-    PackageTrack
+    PackageTrack,
   },
   data() {
     return {
