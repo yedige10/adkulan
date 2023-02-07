@@ -56,11 +56,13 @@ export default {
 
 <style scoped>
 .link {
-    color: #000000
+    color: #000000;
+    font-size: 14px;
 }
 
 .contact-link{
-    color: #583899
+    color: #583899;
+    font-size: 14px;
 }
 
 </style>

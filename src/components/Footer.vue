@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer mt-4">
     <div class="container p-5">
       <div class="columns">
         <div class="column">
@@ -12,7 +12,7 @@
             <img src="@/assets/icons/facebook.svg" />
           </div>
         </div>
-        <div class="column">
+        <div class="column text">
           <p>© Все права защищены 2023</p>
         </div>
       </div>
@@ -48,5 +48,9 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.text{
+  font-size: 14px;
 }
 </style>

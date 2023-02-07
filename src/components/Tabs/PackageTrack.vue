@@ -31,6 +31,8 @@ export default {
   border-radius: 0px 12px 12px 12px;
   padding: 20px 30px;
   align-items: flex-start;
+  border-radius: 0px 12px 12px 12px; 
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .btn {

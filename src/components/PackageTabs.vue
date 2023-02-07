@@ -2,7 +2,9 @@
   <div class="box">
     <div class="d-flex">
       <div
-        :class="tab === 'delivery' ? 'active-tab ' : 'tab'"
+        :class="
+          tab === 'delivery' ? 'active-tab active-delivery-border' : 'tab'
+        "
         @click="tab = 'delivery'"
       >
         Рассчитать стоимость
@@ -14,16 +16,16 @@
         Вызвать курьера
       </div>
       <div
-        :class="tab === 'track' ? 'active-tab ' : 'tab'"
+        :class="tab === 'track' ? 'active-tab active-track-border' : 'tab'"
         @click="tab = 'track'"
       >
         Отследить посылку
       </div>
     </div>
 
-    <package-cost v-if="tab === 'delivery'" />
-    <package-courier v-if="tab === 'courier'" />
-    <package-track v-if="tab === 'track'" />
+      <package-cost v-if="tab === 'delivery'" />
+      <package-courier v-if="tab === 'courier'" />
+      <package-track v-if="tab === 'track'" />
   </div>
 </template>
 
@@ -65,5 +67,14 @@ export default {
   padding: 15px 20px;
   color: #ef363c;
   font-weight: 700;
+  /*box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;*/
+}
+
+.active-delivery-border {
+  border-radius: 12px 0px 0px 0px;
+}
+
+.active-track-border {
+  border-radius: 0px 12px 0px 0px;
 }
 </style>
