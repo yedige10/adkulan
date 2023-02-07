@@ -2,7 +2,7 @@
   <div class="mt-5">
     <h4 class="title">История Exline</h4>
 
-    <div class="row">
+    <div class="row mt-4">
       <div class="col-md-5">
         <div class="history-box">
           <h4 class="title">

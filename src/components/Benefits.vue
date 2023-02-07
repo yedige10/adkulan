@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
 .benefit-box {
-  margin-top: 200px;
+  margin-top: 272px;
 }
 
 .delivery-box {

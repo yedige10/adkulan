@@ -56,6 +56,7 @@ export default {
   cursor: pointer;
 }
 
+
 .tab {
   padding: 15px 20px;
   color: #000000;

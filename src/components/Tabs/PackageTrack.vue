@@ -7,7 +7,7 @@
       aria-describedby="basic-addon1"
     />
 
-    <button type="button" class="btn" @click="alert('Отследить посылку')">
+    <button type="button" class="btn" @click="trackPackage()">
       Отследить посылку
     </button>
   </div>
@@ -16,6 +16,11 @@
 <script>
 export default {
   name: "package-track",
+  methods: {
+    trackPackage(){
+      alert('Отследить посылку')
+    }
+  }
 };
 </script>
 

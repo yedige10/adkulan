@@ -1,38 +1,39 @@
 <template>
-  <div class="d-flex box-cost" >
-    <search-inputs
-      :cities="cities"
-      :from="from"
-      :to="to"
-      @setFromCity="setFromCity"
-      @setToCity="setToCity"
-    />
+  <div class="box-cost">
+    <div class="d-flex gap">
+      <search-inputs
+        :cities="cities"
+        :from="from"
+        :to="to"
+        @setFromCity="setFromCity"
+        @setToCity="setToCity"
+      />
 
-    <button type="button" class="calculate-btn" @click="calculateCost">
-      Рассчитать стоимость
-    </button>
-  </div>
-
-  <div
-    style="display: flex; padding: 20px 30px; justify-content: space-between"
-    v-if="Object.keys(cost).length > 0"
-  >
-    <div style="display: flex; gap: 12px">
-      <div>
-        <img src="@/assets/icons/distance-icon.svg" />
-        <span class="ms-2">Расстояние: {{ cost.distance }} км </span>
-      </div>
-      <div>
-        <img src="@/assets/icons/clock-icon.svg" />
-        <span class="ms-2">Время: {{ cost.time }} ч </span>
-      </div>
-      <div>
-        <img src="@/assets/icons/tenge-icon.svg" />
-        <span class="ms-2">Стоимость: {{ cost.distance }} т </span>
-      </div>
+      <button type="button" class="calculate-btn" @click="calculateCost()">
+        Рассчитать стоимость
+      </button>
     </div>
 
-    <button type="button" class="reset-btn" @click="resetCost">Сбросить</button>
+    <div class="result-cost-box" v-if="showDeliveryCost()">
+      <div class="d-flex gap">
+        <div>
+          <img src="@/assets/icons/distance-icon.svg" />
+          <span class="ms-2">Расстояние: {{ cost.distance }} км </span>
+        </div>
+        <div>
+          <img src="@/assets/icons/clock-icon.svg" />
+          <span class="ms-2">Время: {{ cost.time }} ч </span>
+        </div>
+        <div>
+          <img src="@/assets/icons/tenge-icon.svg" />
+          <span class="ms-2">Стоимость: {{ cost.deliveryCost }} т </span>
+        </div>
+      </div>
+
+      <button type="button" class="reset-btn" @click="resetCost()">
+        Сбросить
+      </button>
+    </div>
   </div>
 </template>
 
@@ -50,18 +51,32 @@ export default {
       from: "",
       to: "",
       cities: CITIES,
-      cost: {},
+      cost: {
+        distance: "",
+        time: "",
+        deliveryCost: "",
+      },
     };
   },
   methods: {
+    showDeliveryCost() {
+      return this.cost.distance && this.cost.time && this.cost.deliveryCost;
+    },
+
     setFromCity(city) {
       this.from = city;
     },
+
     setToCity(city) {
       this.to = city;
     },
+
     calculateCost() {
-      this.cost = {};
+      this.cost = {
+        distance: "",
+        time: "",
+        deliveryCost: "",
+      };
 
       const distance = DISTANCES.find(
         (el) => el.from === this.from?.id && el.to === this.to?.id
@@ -89,7 +104,11 @@ export default {
     resetCost() {
       this.from = "";
       this.to = "";
-      this.cost = {};
+      this.cost = {
+        distance: "",
+        time: "",
+        deliveryCost: "",
+      };
     },
   },
 };
@@ -102,7 +121,7 @@ export default {
   border-radius: 0px 12px 12px 12px;
   padding: 20px 30px;
   align-items: flex-start;
-  border-radius: 0px 12px 12px 12px; 
+  border-radius: 0px 12px 12px 12px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -123,5 +142,15 @@ export default {
   background: transparent;
   border: none;
   font-size: 16px;
+}
+
+.gap {
+  gap: 12px;
+}
+
+.result-cost-box {
+  display: flex;
+  padding: 20px 30px;
+  justify-content: space-between;
 }
 </style>

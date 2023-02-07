@@ -11,7 +11,7 @@
     <button
       type="button"
       class="calculate-btn"
-      @click="alert('Вызвать курьера')"
+      @click="callCourier()"
     >
       Вызвать курьера
     </button>
@@ -34,9 +34,14 @@ export default {
     setFromCity(city) {
       this.from = city;
     },
+
     setToCity(city) {
       this.to = city;
     },
+
+    callCourier(){
+      alert('Вызвать курьера')
+    }
   },
 };
 </script>

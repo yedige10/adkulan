@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg" style="background: #ffffff">
+    <nav class="navbar navbar-expand-lg background">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="../assets/images/logo.png" />
@@ -63,6 +63,10 @@ export default {
 .contact-link{
     color: #583899;
     font-size: 14px;
+}
+
+.background {
+  background: #ffffff
 }
 
 </style>
