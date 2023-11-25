@@ -1,7 +1,26 @@
-import "bootstrap/dist/css/bootstrap.css"
-import { createApp } from 'vue'
-import App from './App.vue'
+// main.js
+import { createApp } from 'vue';
+import App from './App.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
-createApp(App).mount('#app')
+// Import your components
+import Benefits from './components/Benefits.vue';
+import History from './components/History.vue';
 
-import "bootstrap/dist/js/bootstrap.js"
+// Create the router instance
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: Benefits },
+    { path: '/history', component: History },
+  ],
+});
+
+// Create the Vue app instance
+const app = createApp(App);
+
+// Use the router in the app
+app.use(router);
+
+// Mount the app to the DOM
+app.mount('#app');
