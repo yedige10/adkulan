@@ -1,6 +1,6 @@
 <template>
   <div>
-    new fixes fdsjklsdf
+    new fixes 2
     <div class="container">
       <the-header />
     </div>
